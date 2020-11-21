@@ -1,0 +1,6 @@
+curl -sSL https://splunk.jfrog.io/splunk/signalfx-agent-deb/splunk-B3CD4420.gpg > /etc/apt/trusted.gpg.d/splunk.gpg;
+echo 'deb https://splunk.jfrog.io/splunk/signalfx-agent-deb release main' > /etc/apt/sources.list.d/signalfx-agent.list
+apt-get update
+apt-get install -y signalfx-agent
+echo "ENTER_YOUR_TOKEN_HERE" > /etc/signalfx/token
+systemctl restart signalfx-agent.service
